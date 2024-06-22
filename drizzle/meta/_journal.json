@@ -1,0 +1,27 @@
+{
+  "version": "6",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1718468591853,
+      "tag": "0000_new_korath",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1718480994347,
+      "tag": "0001_sad_cyclops",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1718556799849,
+      "tag": "0002_familiar_ultron",
+      "breakpoints": true
+    }
+  ]
+}

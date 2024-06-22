@@ -1,0 +1,1 @@
+ALTER TABLE "testing-platform-poc_userSolution" ADD COLUMN "lastScore" integer;

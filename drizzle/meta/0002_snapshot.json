@@ -1,0 +1,165 @@
+{
+  "id": "038930b1-c74c-453b-a48d-a172c5643b77",
+  "prevId": "97bf1b8b-0126-480d-8d1d-139e000753d3",
+  "version": "6",
+  "dialect": "postgresql",
+  "tables": {
+    "public.testing-platform-poc_contest": {
+      "name": "testing-platform-poc_contest",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar(256)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "description": {
+          "name": "description",
+          "type": "varchar(10000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "problemDescription": {
+          "name": "problemDescription",
+          "type": "varchar(10000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "difficulty": {
+          "name": "difficulty",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "testing-platform-poc_contest_name_unique": {
+          "name": "testing-platform-poc_contest_name_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "name"
+          ]
+        }
+      }
+    },
+    "public.testing-platform-poc_level": {
+      "name": "testing-platform-poc_level",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "index": {
+          "name": "index",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "contestId": {
+          "name": "contestId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "graderUrl": {
+          "name": "graderUrl",
+          "type": "varchar(10000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "inputFileUrl": {
+          "name": "inputFileUrl",
+          "type": "varchar(10000)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "testing-platform-poc_level_contestId_testing-platform-poc_contest_id_fk": {
+          "name": "testing-platform-poc_level_contestId_testing-platform-poc_contest_id_fk",
+          "tableFrom": "testing-platform-poc_level",
+          "tableTo": "testing-platform-poc_contest",
+          "columnsFrom": [
+            "contestId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.testing-platform-poc_userSolution": {
+      "name": "testing-platform-poc_userSolution",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "levelId": {
+          "name": "levelId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fileUrl": {
+          "name": "fileUrl",
+          "type": "varchar(10000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "lastScore": {
+          "name": "lastScore",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "testing-platform-poc_userSolution_levelId_testing-platform-poc_level_id_fk": {
+          "name": "testing-platform-poc_userSolution_levelId_testing-platform-poc_level_id_fk",
+          "tableFrom": "testing-platform-poc_userSolution",
+          "tableTo": "testing-platform-poc_level",
+          "columnsFrom": [
+            "levelId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}
